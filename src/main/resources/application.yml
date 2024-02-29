@@ -1,0 +1,33 @@
+
+spring:
+  application:
+    name: core-service
+  profiles:
+    active: local
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: 'false'
+  datasource:
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+    url: jdbc:mysql://localhost:3306/core_service
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: 'false'
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+jwt:
+  expirationDateInMs: '3600000'
+  secret: secret
+  refreshExpirationDateInMs: '3600000'
+
+server:
+  port: 8080
